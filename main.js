@@ -35,7 +35,7 @@ console.log(carroDoJoao2);
 console.log(carroDaMaria2);
 
 const nome = "Ludmyla"
-const idade = 15
+const idade = 22
 const ehMaiorDeIdade = true
 const conhecimentos = ["html", "css", "javascript"]
 
@@ -46,8 +46,7 @@ const pessoa = {
     conhecimentos: conhecimentos,
 }
 
-console.log(pessoa.nome)
-console.log(pessoa['nome'])
+
 
 function exibeAtributo(nomeAtributo) {
     console.log(pessoa[nomeAtributo])
@@ -55,8 +54,23 @@ function exibeAtributo(nomeAtributo) {
 
 exibeAtributo('nome');
 
-pessoa['sobrenome'] = 'Toledo'
+pessoa['sobrenome'] = 'undefined';
+
+Object.freeze(pessoa);
+
+pessoa.nome = 'joao';
 
 if (pessoa.sobrenome) {
     console.log("a pessoa tem um sobrenome")
 }
+
+if ('sobrenome' in pessoa) {
+    console.log('tem sobrenome');
+}
+
+
+console.log(pessoa.nome)
+console.log(pessoa['nome'])
+
+console.log(Object.keys(pessoa).length);
+console.log(Object.values(pessoa));
